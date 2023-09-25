@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Research Institute</title>
+    <link rel="stylesheet" href="./css/researchForm.css" />
+    <script src="js/researchFormValidation.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Research Form</h1>
+    </header>
+    
+    <!--
+        BUGS:
+        JS NOT WORKING -> 
+            PHONE NUMBER ACCEPTS CHARS AND LESS THAN THE AMOUNT OF NUMS
+            CONDITIONS ACCEPTS ALL AND NONE (EDGES)
+            TIMEPERIOD DOESNT PRINT
+            STUDY ID ACCEPTS ALL STRINGS. INCUDING UNCAPITALIZED FIRST CHAR
+    -->
+    <section>
+        <form id="wholeForm" action="http://localhost:3000/processForm" method="post">          
+            <fieldset>
+
+                <!--FIRST BLOCK-->
+
+                <legend>General Information</legend>  
+
+                <label>Firstname:
+                    <input name= 'firstname' id= 'firstname' type= 'text' autofocus required='required'></label>
+                <label>Lastname:
+                    <input name= 'lastname' id= 'lastname' type= 'text' required='required'></label><br><br>
+
+                <label>Phone:
+                    <input name= 'phoneFirstPart' id= 'phoneFirstPart' type= 'text' maxlength='3' size='3' required> - <!--LENGTH ENSURE PROPER SIZE-->
+                    <input name= 'phoneSecondPart' id= 'phoneSecondPart' type= 'text' maxlength='3' size='3' required> -
+                </label>
+
+                <label>Email:
+                    <input name= 'email' id= 'email' type='email' size = '35' required></label><br> <!--EMAIL TYPE-->
+            </fieldset>
+
+            <!--SECOND BLOCK-->
+
+            <fieldset> 
+                <legend>Research Study Data</legend>
+
+                 <!--SUB BLOCKS-->
+
+                <fieldset>
+                    <legend>Age/Height/Weight</legend>
+
+                    <label><strong>Age: </strong> 
+                        <input name= 'age' id= 'age' type= 'number' min= '1' max= '125'>  <!--MIN AND MAX TO ENSURE PROPER RANGE OF SCROLL. DOESNT ENSURE WRONG TYPE IN-->
+                    </label>
+
+                    <label><strong>&emsp;Height: </strong>
+                        <input name= 'heightFeet' id= 'heightFeet' type= 'number' min= '2' max= '7' >
+                        <label><i>Feet</i></label>
+                        <input name= 'heightInches' id= 'heightInches' type= 'number' min= '0' max= '11' >
+                        <label><i>Inches&emsp;</i></label>
+                    </label>
+
+                    <label><strong>Weight: </strong>
+                        <input name= 'weight' id='weight' type= 'number' min= '1' max= '600' >
+                        <label><i>Pounds</i></label>
+                    </label>
+                </fieldset><br>
+
+                <fieldset>
+                    <legend>Conditions</legend> 
+                    <label>Which of the following are present in your family? (Check all that apply)</label><br>
+
+                    <!--CHECK FOR NO BOX SELECTED-->
+                    <label><input type='checkbox' name='highBloodPressure' id='highBloodPressure' value='High Blood Pressure'>High Blood Pressue</label> 
+                    <label><input type='checkbox' name='diabetes' id= 'diabetes' value= 'Diabetes'>Diabetes</label>
+              
+                </fieldset><br>
+
+                <fieldset>
+                    <legend>Time Period</legend>
+                    <label>How long have you experienced any of the above conditions?</label><br>
+
+                    <!--CHECK FOR NO BOX SELECTED-->
+                    <label><input type='radio' name= 'period' id= 'never' value= 'never'>Never</label>
+            
+                </fieldset><br>
+
+                <fieldset>
+                    <legend>Study Information</legend>
+
+                    <label>Which study are you taking part of?<select name= 'studyType' id ='studyType' required>
+                        <option value='Long Term' selected>Long Term</option>
+                        <option value='Short Term'>Short Term</option>
+                    </select></label>
+<!---->
+                  
+                    
+                </fieldset><br>
+
+                <fieldset>
+                    <legend>Additional Information (Comments)</legend>
+                    <textarea name= 'comments' id = 'comments' rows='10' cols='90'></textarea>
+                    
+                </fieldset>
+            </fieldset><br>
+
+            <fieldset>
+                <input type = 'reset' value = 'Clear Form'>
+                <input type = 'submit' value = 'Submit Information'>
+            </fieldset>
+        </form><br>
+
+    </section>
+
+    <footer>
+        <hr>CMSC Research Institute &reg;<hr>
+    </footer>
+</body>
+</html>
