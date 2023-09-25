@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise 3 - Due: Oct. 7, by 11pm</title>
+    <style> 
+        table {
+            border: grey thick ridge;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: grey thin solid;
+
+        }
+
+        td.first{
+            border-bottom-width: thick;}
+        td.last{
+            border-top-width: thick;} 
+        th.first{
+                border-bottom-width: thick;}
+        th.last{
+                border-top-width: thick;}   
+    
+        .squaredStyle{
+            font-weight:bold;
+            font-style: italic;
+            text-decoration: underline;
+            color: blueviolet;
+        }
+
+        td.lastSquared{
+            border-top-width: thick;
+            font-weight:bold;
+            font-style: italic;
+            text-decoration: underline;
+            color: blueviolet;
+        } 
+    </style>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        var input;
+        var inputArr = [];
+
+        do{ /*gather input and push onto array*/
+            input = prompt("Enter a number");
+            if (!isNaN(parseFloat(input))) {
+                input = parseFloat(input);
+                inputArr.push(Math.round(input));
+            }
+
+            else if(input == "done"){
+                break;
+            }
+                
+            else if (isNaN(input)){
+                alert("Enter a valid number");
+            }
+        } while(input != "done")
+          
+        /*creation of table*/
+        document.writeln("<table>");
+            /*header*/
+            document.writeln("<tr><th class = 'first'>Count</th><th class = 'first'>Value</th><th class = 'first'>Squared Value</th></tr>");
+            
+            /*adding data*/
+            var count = inputArr.length;
+            var index = 0;
+            var sum1 = 0;
+            var sum2 = 0;
+    
+            while(count > 0){
+                document.writeln("<tr><td>" + (index+1) + "</td><td>" +
+                inputArr[index] +"</td><td class = \"squaredStyle\">"+ Math.pow(inputArr[index],2) +"</td></tr>");
+                
+                count = count -1; /*increment*/
+                sum1 = sum1 + inputArr[index]; /*calculate sum*/
+                sum2 = sum2 + Math.pow(inputArr[index],2); /*calculate squared sum*/
+                index = index + 1; /*increment*/
+            }
+            /*last line*/
+            document.writeln("<tr><td class = 'last'>Sum</td><td class = 'last'>"+sum1+"</td><td class = 'lastSquared'>"+sum2+"</td></tr>");
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

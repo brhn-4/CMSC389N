@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+  <style>
+    .success,
+    .error {
+      color: white;
+      margin: 5px 0 15px;
+      padding: 5px;
+    }
+
+    .success {
+      background-color: green;
+    }
+
+    .error {
+      background-color: red;
+    }
+  </style>
+
+  <title>Exercise 5</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>My Book Library</h1>
+    <form id="book-form">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" class="u-full-width" />
+      </div>
+      <div>
+        <label for="author">Author</label>
+        <input type="text" id="author" class="u-full-width" />
+      </div>
+      <div>
+        <label for="pages"># Pages</label>
+        <input type="text" id="pages" class="u-full-width" />
+      </div>
+      <div>
+        <label for="bookType">Type of Book</label>
+        <select class="u-full-width" id="bookType">
+          <option value="TextBook">TextBook</option>
+          <option value="PictureBook">PictureBook</option>
+          <option value="CookBook">CookBook</option>
+        </select>
+      </div>
+      <div>
+        <label for="data" id="dataLabel">Subject</label>
+        <input type="text" id="data" class="u-full-width" />
+      </div>
+      <div>
+        <button type="button" onclick="addBook()" class="u-full-width">
+          Submit
+        </button>
+      </div>
+    </form>
+    <table id="table" class="u-full-width">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
+  </div>
+  <script src="ex5.js"></script>
+</body>
+
+</html>
